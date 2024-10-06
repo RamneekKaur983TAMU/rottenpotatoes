@@ -1,16 +1,41 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: black"><%= notice %></p>
 
 <% content_for :title, "Movies" %>
 
-<h1>Movies</h1>
+<h1 style="font-family: Arial, sans-serif; color: #928d90; text-align: center;">Movies</h1>
 
-<div id="movies">
-  <% @movies.each do |movie| %>
-    <%= render movie %>
-    <p>
-      <%= link_to "Show this movie", movie %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New movie", new_movie_path %>
+<table style="width: 100%; border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th class="<%= sorted_column_class('title') %>">
+        <%= link_to "Title #{sort_indicator('title')}".html_safe, { sort: "title", direction: toggle_direction('title') } %>
+      </th>
+      <th class="<%= sorted_column_class('rating') %>">
+        <%= link_to "Rating #{sort_indicator('rating')}".html_safe, { sort: "rating", direction: toggle_direction('rating') } %>
+      </th>
+      <th class="<%= sorted_column_class('release_date') %>">
+        <%= link_to "Release Date #{sort_indicator('release_date')}".html_safe, { sort: "release_date", direction: toggle_direction('release_date') } %>
+      </th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr id="<%= dom_id(movie) %>" style="text-align: center; border-bottom: 1px solid #ddd;">
+        <td><%= movie.title %></td>
+        <td><%= movie.rating %></td>
+        <td><%= movie.release_date %></td>
+        <td>
+          <%= link_to "Show", movie_path(movie), style: "color: black" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4" style="text-align: right; padding: 10px;">
+        <%= link_to "New movie", new_movie_path, style: "font-weight: bold; text-decoration: underline; color: black" %>
+      </td>
+    </tr>
+  </tfoot>
+</table>

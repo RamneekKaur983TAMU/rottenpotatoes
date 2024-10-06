@@ -1,10 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title, "Movie Details" %>
 
-<%= render @movie %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "movies_show", media: "all" %>
+<% end %>
 
-<div>
-  <%= link_to "Edit this movie", edit_movie_path(@movie) %> |
-  <%= link_to "Back to movies", movies_path %>
 
-  <%= button_to "Destroy this movie", @movie, method: :delete %>
+<div id="movie-details">
+  <%= render @movie %>
+</div>
+
+<div class="actions">
+  <%= link_to "Edit this movie", edit_movie_path(@movie), class: "button-link" %> |
+  <%= link_to "Back to movies", movies_path, class: "button-link" %>
+  <%= button_to "Destroy this movie", @movie, method: :delete, class: "danger-button" %>
 </div>

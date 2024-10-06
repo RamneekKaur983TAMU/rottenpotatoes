@@ -8,7 +8,10 @@ more_movies = [
   { title: 'Dora The Explorer', rating: 'PG-13', release_date: '15-Aug-2021' },
   { title: 'The Lion King', rating: 'PG-13', release_date: '17-Aug-2021' },
   { title: 'Snake Part 2', rating: 'PG-13', release_date: '10-Aug-2022' },
-  { title: 'Balloons', rating: 'PG-13', release_date: '13-Sept-2021' }
+  { title: 'Balloons', rating: 'PG-13', release_date: '13-Sept-2021' },
+  { title: 'Hats', rating: 'PG-13', release_date: '13-Sept-2021' },
+  { title: 'Cups', rating: 'PG-13', release_date: '13-Sept-2021' },
+  { title: 'Plates', rating: 'PG-13', release_date: '13-Sept-2021' }
 ]
 
 # Use find_or_create_by to avoid duplicates

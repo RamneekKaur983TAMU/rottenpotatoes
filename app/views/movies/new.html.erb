@@ -1,11 +1,15 @@
 <% content_for :title, "New movie" %>
 
+<% content_for :head do %>
+  <%= stylesheet_link_tag "movies_new", media: "all" %>
+<% end %>
+
 <h1>New movie</h1>
 
 <%= render "form", movie: @movie %>
 
 <br>
 
-<div>
-  <%= link_to "Back to movies", movies_path %>
+<div class="back-link">
+  <%= link_to "Back to movies", movies_path, class: "button-link" %>
 </div>
